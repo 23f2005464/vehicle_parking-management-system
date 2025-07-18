@@ -1,0 +1,160 @@
+.custom-navbar {
+    background-color: #D9D9D9;
+    font-family:'Inter',sans-serif;
+}
+
+.navbar-brand {
+    color: black;
+    margin-left: 1rem;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: larger;
+    margin-left: auto;
+}
+
+.nav-item.nav-link {
+    padding-left: 50px !important;
+}
+
+.btn-primary {
+    background: black;
+    border-color: black;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #048002;
+    border-color: #222831;
+}
+
+.container {
+    width: 80vw;
+    height: 30vh !important;
+    border-style: solid;
+    border-color: black !important;
+    border-width: 3px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.search-bar {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center !important;
+    margin-left: -10vw;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.search-bar h5 {
+    text-align: center;
+    font-family: 'Times New Roman';
+    opacity: 1 !important;
+    margin: 0;
+}
+
+.search-bar .inside_container {
+    width: 28rem;
+    height: 2rem;
+    border-style: solid;
+    border-color: black;
+    border-radius: 0.5rem;
+    background-color: rgba(250, 252, 237, 0.765);
+}
+
+.container2 {
+    border-radius: 3rem;
+    height: 40vh !important;
+}
+
+.container h5 {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.card-body {
+    background-color: white;
+    width: auto;
+    height: 9rem;
+    border-style: solid;
+    border-radius: 3rem;
+    text-align: center;
+    margin: 0.7rem;
+    box-shadow: 5px 15px 8px 2px;
+    
+}
+#lot_cards::-webkit-scrollbar {
+  display: none;
+}
+#lot_cards {
+    overflow-y:auto ; /* enable overflow with slider*/
+  scrollbar-width: none;     /* hides scroll bar*/
+}
+/*  delete if not used future me i am telling u  ::
+.table-container {
+
+    background: #fff;
+    margin: 1rem;
+    margin-top: 2.5rem;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    text-align: center;
+    border-left: 2px solid rgb(255, 0, 0);
+    border-right: 2px solid rgb(245, 0, 0);
+    border-radius: 3rem;
+}
+
+.table-container th:first-child,
+.table-container td:first-child {
+    border-left: none;
+}
+
+.table-container th:last-child,
+.table-container td:last-child {
+    border-right: none;
+} */
+
+img.clickable {
+    cursor: pointer;
+}
+
+.mt-3{
+ 
+    border-color:#ffffff;
+}
+#Buy-button{
+    padding-right:25px ;
+    padding-left:20px ;
+    margin-left: 10px;
+}
+#grp{
+    margin-top: 2rem;
+    max-height: 20vh;
+    overflow-y: scroll;
+}
+#release-btn{
+    padding-right:25px ;
+    padding-left:20px ;
+    margin:0;
+}
+.table{
+    text-align: center;
+}

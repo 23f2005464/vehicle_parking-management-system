@@ -1,0 +1,64 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap">
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100%;
+            width:100%; 
+        }
+        #small-container{
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffff;
+            display: flex;
+            flex-direction: column;
+            height: 30vh;
+            border: solid 2px;
+            border-radius: 25px;
+            box-shadow: 0px 5px 2px;
+        }
+        .ok-btn{
+            margin-top: 1rem;
+            padding: 0.5rem;
+            padding-right:100px;
+            padding-left: 100px;
+            background-color: #D9D9D9;
+            border-style: solid;
+            border-radius: 5px;
+
+            
+        }
+        .ok-btn:hover{
+            background-color:red;
+            font-weight:bold;
+        }
+        .align-container{
+            display: flex;
+            width:20vw ;
+            justify-content: center;
+            font-size:x-large;
+
+        }
+    </style>
+</head>
+<body>
+    <div id='container'>
+        <div id="small-container">
+            <div class="align-container">
+            <p style="color:red;"><b>{{ message or "Success" }}!</b></p>
+            </div>
+            <div class="align-container">
+            <form action="{{ redirect_url }}" method="get">
+                <button type="submit" class="ok-btn">OK</button>
+            </form>
+        </div>
+        </div>
+       
+    </div>   
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        .custom-navbar {
+            background-color: #D9D9D9;
+            font-family: "Inter", sans-serif;
+        }
+
+        .navbar-brand {
+            color: black;
+            margin-left: 1rem;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: larger;
+            margin-left: auto;
+        }
+
+        .nav-item.nav-link {
+            padding-left: 50px !important;
+        }
+
+        .btn-primary {
+            background: black;
+            border-color: black;
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #048002;
+            border-color: #222831;
+        }
+
+        .chart-container {
+            width: 100%;
+            display: flex;
+            height: 20%;
+            justify-content: center;
+        }
+
+        .room-container {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            margin-top: 4rem;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <a class="navbar-brand" href="{{url_for('home')}}"><b>Hi, {{user_data.Full_Name}}</b></a>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{{url_for('home')}}">Home</a>
+                <a class="nav-item nav-link" href="#">Summary</a>
+                <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Log out</a>
+            </div>
+            <a href="{{ url_for('user.user_profile')}}" class="btn btn-primary btn-sm">Edit Profile</a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    {% if count_loc %}
+    <h1 style="text-align: center; margin-top: 2rem;margin-bottom: 0;">Active Spots</h1>
+    <div class="container room-container">
+        <canvas id="SpotsChart"></canvas>
+    </div>
+    {% endif %}
+
+    {% if data %}
+    <h1 style="text-align: center;margin-top:2rem;margin-bottom:0">Total Duration of Individual location</h1>
+    <div class="container room-container">
+        <canvas id="durationChart2"></canvas>
+    </div>
+    {% endif %}
+
+
+    {% if count_loc %}
+    <script>
+        const ctx = document.getElementById('SpotsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: JSON.parse('{{ count_loc.keys() | list | tojson }}'),
+                datasets: [{
+                    label: 'Active Spots Count',
+                    data: JSON.parse('{{ count_loc.values() | list | tojson }}'),
+                    backgroundColor: [ '#228B22' ],
+                    barThickness:60
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+        {% endif %}
+    </script>
+
+    {% if data %}
+    <script>
+        const ctx2 = document.getElementById('durationChart2').getContext('2d');
+        const chartData2 = {{ data | tojson }};
+        const labels2 = chartData2.map(item => item.prime_location);
+        const durations2 = chartData2.map(item => item.total_duration);
+
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: labels2,
+                datasets: [{
+                    label: 'Total Duration Per Location',
+                    data: durations2,
+                    backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1,
+                    barThickness:60
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: function (context) {
+                                const index = context.dataIndex;
+                                const spotList = chartData2[index].spots;
+                                return spotList.map(spot =>
+                                    `Spot ID: ${spot.spot_id}, Duration: ${spot.duration} hrs`
+                                );
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true },
+                    y: { ticks: { autoSkip: false } }
+                }
+            }
+        });
+        {% endif %}
+
+    </script>
+
+</body>
+
+</html>

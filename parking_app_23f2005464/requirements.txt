@@ -1,0 +1,6 @@
+Flask 
+Sqlalchemy
+passlib
+flask-cors
+Flask-SQLAlchemy
+bcrypt

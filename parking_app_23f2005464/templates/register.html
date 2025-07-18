@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap">
+    <link rel="stylesheet" href="{{url_for('static',filename='register.css')}}">
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="Login">
+            <form action="{{url_for('auth.create_user')}}" method="post" >
+<!-- actual creditionals -->
+                <div id="email">
+                    <label for="email">Email</label>
+                    <input type="text" name="Email" placeholder="email"
+                        style="width: 285px;height:30px; background-color: D9D9D9; border-radius:5px;border:0; margin-left: 45px;"
+                        required>
+                </div>
+                <div id="password">
+                    <label for="name">Password</label>
+                    <input type="password" name="password" placeholder="Password"
+                        style="width: 285px;height:30px;background-color: D9D9D9; border-radius:5px;border:0;margin-left: 15px; "
+                        required>
+                </div>
+                <div id="full_name">
+                    <label for="name">Full Name</label>
+                    <input type="text" name="Full name" placeholder="Full Name"
+                        style="width: 285px;height:30px;background-color: D9D9D9; border-radius:5px;border:0;margin-left: 18px; "
+                        required>
+                </div>
+                <div id="address">
+                    <label for="name">Address</label>
+                    <input type="text" name="Address" placeholder="Full Address"
+                        style="width: 285px;height:30px;background-color: D9D9D9; border-radius:5px;border:0;margin-left: 28px; "
+                        required>
+                </div>
+                <div id="pincode">
+                    <label for="name">Pincode</label>
+                    <input type="text" name="pincode" placeholder="Pincode"
+                        style="width: 285px;height:30px;background-color: D9D9D9; border-radius:5px;border:0;margin-left: 30px; "
+                        required>
+                </div>
+                <div id="button">
+                    <button type="submit"
+                        style="width: 370px; height: 40px; background-color: 2C2D2D; color: white; border-radius: 5px; font-family:  Londrina Solid; font-size: 15px; margin-left:73px ;margin-top: 20px;">Register</button>
+                </div>
+
+                <div>
+
+        
+             </form>
+        </div>
+    </div>
+
+</body>
+</html>

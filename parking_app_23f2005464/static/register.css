@@ -1,0 +1,74 @@
+body {
+    background-color: #ffffff;
+    font-family: Londrina Solid;
+    font-size: 15px;
+}
+
+#container {
+    display: flex;
+    border-radius: 36px;
+    border: 1px solid;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 200px;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#email {
+    margin-left: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;
+
+}
+
+#password {
+    margin-left: 50px;
+    font-family: Londrina Solid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;
+}
+#full_name {
+    margin-left: 50px;
+    font-family: Londrina Solid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;
+}
+#address {
+    margin-left: 50px;
+    font-family: Londrina Solid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;
+}
+#pincode {
+    margin-left: 50px;
+    font-family: Londrina Solid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 20px;
+    font-size: 18px;
+}
+
+
+
+

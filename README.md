@@ -32,6 +32,7 @@ flask --app app run --reload
 ```
 
 ## Folder structure
+```
 parking_app_23f2005464
     │   app.py
     │   Readme.md
@@ -80,7 +81,7 @@ parking_app_23f2005464
             user_summary.html
 
 
-
+``` 
 
 
 ## Database  Entity Relationship Diagram :
